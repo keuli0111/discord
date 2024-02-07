@@ -1,0 +1,17 @@
+{
+    "name": "@keuli/discord",
+    "version": "1.0.0-alpha",
+    "description": "",
+    "main": "index.ts",
+    "scripts": {
+        "start": "ts-node ./src"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "discord.js": "^14.14.1"
+    },
+    "devDependencies": {
+        "@types/node": "^20.11.16"
+    }
+}
