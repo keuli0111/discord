@@ -8,11 +8,15 @@
 
 RPG 기능, 투자 기능과 같은 게임성을 제외한 모든 기능이 존재합니다!!
 
+<br/>
+
 ### 기능
 
-| 전용 명령어? | 타입 | 이름 | 설명 | 옵션? |
-| --- | --- | --- | --- | --- |
-| X | test | /ping | Pong! | X |
+| 전용 명령어? | 타입 | 이름  | 설명  | 옵션? |
+| ------------ | ---- | ----- | ----- | ----- |
+| X            | test | /ping | Pong! | X     |
+
+<br/>
 
 ## 설정
 
@@ -31,19 +35,23 @@ npm i --g typescript ts-node
 그 후, config.json 파일을 만들어주세요!
 
 ```json
-{ token: "", clientId: "", guildId: "", logId: "", errorLogId: "" } 
+{ "token": "", "clientId": "", "guildId": "", "logId": "", "errorLogId": "" }
 ```
 
 config.json을 위와 같은 형태로 만들고
 
+<br/>
+
 ~~옵션에 대한 설명입니다~~
 
-| token | 봇 토큰 | discord development 사이트에서 얻으실 수 있어요! |
-| --- | --- | --- |
-| clientId | application ID | discord development 사이트에서 얻으실 수 있어요! |
-| guildId | 전용 길드 ID |  |
-| logId | 로그 채널 ID | 전용 길드에 로그용 채널을 만들어주세요! |
-| errorLogId | 에러 로그 채널 ID | 전용 길드에 에러 로그용 채널을 만들어주세요! |
+| token      | 봇 토큰           | discord development 사이트에서 얻으실 수 있어요! |
+| ---------- | ----------------- | ------------------------------------------------ |
+| clientId   | application ID    | discord development 사이트에서 얻으실 수 있어요! |
+| guildId    | 전용 길드 ID      |                                                  |
+| logId      | 로그 채널 ID      | 전용 길드에 로그용 채널을 만들어주세요!          |
+| errorLogId | 에러 로그 채널 ID | 전용 길드에 에러 로그용 채널을 만들어주세요!     |
+
+<br/>
 
 config.json에 값을 다 채우셨다면
 
@@ -52,6 +60,8 @@ npm i --save
 ```
 
 를 입력하고 [y/n] 표시가 나오면, y를 입력하고 엔터를 눌러주세요!
+
+<br/>
 
 ```bash
 npm start
