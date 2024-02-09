@@ -2,9 +2,11 @@ import { Client, Collection, EmbedBuilder, Events, GatewayIntentBits, Interactio
 import * as path from 'path';
 import { readdirSync } from 'fs';
 import { Log } from '../log';
+import { Music } from '../music';
 
 export class CLIENT extends Client {
     public commands = new Collection();
+    public musics = new Collection();
     public log: Log | undefined;
 
     constructor(token: string, guildId: string, clientId: string, logId: string, errorLogId: string) {
@@ -76,12 +78,26 @@ export class CLIENT extends Client {
                     return;
                 }
 
-                this.log?.info(`(${interaction.guild?.name}) ${interaction.user.globalName} - /${interaction.commandName}`);
+                this.log?.info(
+                    `(${interaction.guild?.name}) ${interaction.user.globalName} - /${interaction.commandName}`
+                );
                 await interaction.deferReply({});
                 //await interaction.deferReply({ ephemeral: true });
 
                 try {
-                    await command.execute(interaction);
+                    switch (command.type) {
+                        case 'test':
+                            await command.execute(interaction);
+                        case 'music':
+                            const music = this.musics.get(interaction.guildId);
+                            if (music) await command.execute(music, interaction);
+                            else {
+                                const music = new Music(this, interaction.guildId!);
+                                this.musics.set(interaction.guildId, music);
+
+                                await command.execute(music, interaction);
+                            }
+                    }
                 } catch (error) {
                     this.log?.error(String(error));
 
